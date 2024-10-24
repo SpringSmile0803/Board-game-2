@@ -1,2 +1,2 @@
-# Border-game-2
+# Board-game-2
 Java Assignment2
