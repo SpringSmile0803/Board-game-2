@@ -317,7 +317,8 @@ class RightItemPanel extends JPanel {
                 System.exit(0);
             } 
 
-            tower.check_tower(players[currentPlayerIndex].getPosition());
+            String land = tower.check_tower(players[currentPlayerIndex].getPosition());
+            JOptionPane.showMessageDialog(null, land);
 
             // next player
             gameController.setcurrentPlayerIndex((currentPlayerIndex + 1)%players.length);
