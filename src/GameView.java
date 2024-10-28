@@ -185,10 +185,13 @@ class RightItemPanel extends JPanel {
     private TablePanel tablePanel;
     private Four_Color four_Color;
     private JLabel turntext;
+    private Tower tower;
 
-    public RightItemPanel(GameController gameController, TablePanel tablePanel) {
+    public RightItemPanel(GameController gameController, TablePanel tablePanel, Tower tower) {
         this.gameController = gameController;
         this.tablePanel = tablePanel;
+        this.tower = tower;
+
         PlayerSetting[] players = gameController.getplayers();
         cellSize = 258;
         setLayout(new GridBagLayout());
@@ -279,7 +282,6 @@ class RightItemPanel extends JPanel {
     }
 
     private void rollDice() {
-
         int currentPlayerIndex = gameController.getcurrentPlayerIndex();
         PlayerSetting[] players = gameController.getplayers();
         this.four_Color = new Four_Color();
@@ -314,6 +316,8 @@ class RightItemPanel extends JPanel {
                 JOptionPane.showMessageDialog(null, "Player " + (currentPlayerIndex + 1) + " " + players[currentPlayerIndex].getName() + " wins!");
                 System.exit(0);
             } 
+
+            tower.check_tower(players[currentPlayerIndex].getPosition());
 
             // next player
             gameController.setcurrentPlayerIndex((currentPlayerIndex + 1)%players.length);

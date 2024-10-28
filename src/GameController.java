@@ -13,7 +13,7 @@ public class GameController {
 
     private void createAndShowGUI() {
         JFrame jframe = new JFrame();
-        
+        Tower tower = new Tower();
         jframe.getContentPane().setBackground(new Color(233, 218, 182)); // Background
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // Close on exit
         jframe.setUndecorated(true);                // no frame decorations
@@ -26,7 +26,7 @@ public class GameController {
 
         playerNamePanel = new PlayerNamePanel(this);
         TablePanel tablePanel = new TablePanel();
-        rightItemPanel = new RightItemPanel(this, tablePanel);
+        rightItemPanel = new RightItemPanel(this, tablePanel, tower);
 
         jframe.add(tablePanel, BorderLayout.WEST);
         jframe.add(playerNamePanel, BorderLayout.CENTER);

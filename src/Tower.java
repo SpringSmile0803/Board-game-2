@@ -3,7 +3,18 @@ import java.util.HashMap;
 
 public class Tower {
     
-    public void Check_tower() {
+    // Enter position
+    public String check_tower(int num) {
+        if ((num >= 5 && num <= 14)||(num >= 20 && num <= 23)||(num >= 25 && num <= 44)||(num >= 50 && num <= 53)||(num >= 55 && num <= 59)||(num >= 65 && num <= 74)||(num >= 80 && num <= 83)||(num >= 85 && num <= 89)||(num >= 95 && num <= 99)) {
+            return "Free tile";
+        } else if(num == 25 || num == 55 || num == 85) {
+            return "Pick the card";
+        } else {
+            return gettower(num);
+        }
+    }
+
+    public String gettower(int num) {
         HashMap<Integer, String> TowerName = new HashMap<>();
         
         TowerName.put(0, "Tropicana The Residences");
@@ -47,5 +58,7 @@ public class Tower {
         TowerName.put(92, "D'Vervain Residences");
         TowerName.put(93, "D'Cosmos Residences");
         TowerName.put(94, "The Essence");
+
+        return TowerName.get(num);
     }
 }
