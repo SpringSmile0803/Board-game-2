@@ -48,7 +48,7 @@ public class Tower {
         TowerName.put(64, "Razak City Residences");
         
         TowerName.put(75, "Tropicana Gardens");
-        TowerName.put(76, "mporis Kota Damansara");
+        TowerName.put(76, "Emporis Kota Damansara");
         TowerName.put(77, "Sunway d'hill Residences");
         TowerName.put(78, "The Estana");
         TowerName.put(79, "Mahogany Residences");
