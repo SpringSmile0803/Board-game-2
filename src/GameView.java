@@ -289,7 +289,7 @@ class RightItemPanel extends JPanel {
         // make sure score is not >= 100 
         if (players[currentPlayerIndex].getPosition() < 100 - 1) {
             int rollnumber = (int)(Math.random() * 6) + 1;  // random num
-            updateDiceImage(rollnumber);
+            updateDiceImage(rollnumber);     
 
             JOptionPane.showMessageDialog(null, "Player " + (currentPlayerIndex + 1) + " " + players[currentPlayerIndex].getName() + " roll " + rollnumber);
             int CurrenPosition = players[currentPlayerIndex].getPosition();
@@ -309,6 +309,51 @@ class RightItemPanel extends JPanel {
 
             JOptionPane.showMessageDialog(null, "Now is in " + players[currentPlayerIndex].getPosition());
 
+            String landname = tower.check_tower(CurrenPosition);
+            if (landname == "Free tile") {
+                ImageIcon landview = new ImageIcon(getClass().getResource("image/views/Free tile.gif"));
+                JOptionPane.showMessageDialog(null, "", players[currentPlayerIndex].getName() + " are landed in " + landname, JOptionPane.INFORMATION_MESSAGE, landview);
+            } else if (landname == "Pick a card") {
+                int cardnum = (int)(Math.random() * 10);
+                switch (cardnum) {
+                    case 0:
+                        JOptionPane.showMessageDialog(null, "Sing your favorite song", "", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    case 1:
+                        JOptionPane.showMessageDialog(null, "Clap your hand three times, spin around twice and sit down.", "", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(null, "Do the Chicken Dance", "", JOptionPane.INFORMATION_MESSAGE);                
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(null, "Do the Floss Dance", "", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    case 4:
+                        JOptionPane.showMessageDialog(null, "Walk like a robot", "", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    case 5:
+                        JOptionPane.showMessageDialog(null, "Say the alphabet backwards", "", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    case 6:
+                        JOptionPane.showMessageDialog(null, "Name five state in the USA", "", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    case 7:
+                        JOptionPane.showMessageDialog(null, "Count to ten in a different language", "", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    case 8:
+                        JOptionPane.showMessageDialog(null, "Play air guitar", "", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    case 9:
+                        JOptionPane.showMessageDialog(null, "Do five star jump", "", JOptionPane.INFORMATION_MESSAGE);
+                        break;     
+                    default:
+                        break;
+                }
+            } else {
+                ImageIcon landview = new ImageIcon("image/views/" + landname+".jpg");
+                JOptionPane.showMessageDialog(null, "", players[currentPlayerIndex].getName() + " are landed in " + landname, JOptionPane.INFORMATION_MESSAGE, landview);
+            }
+            
             // update score
             gameController.playerNamePanel.updateScore();
 
@@ -316,9 +361,6 @@ class RightItemPanel extends JPanel {
                 JOptionPane.showMessageDialog(null, "Player " + (currentPlayerIndex + 1) + " " + players[currentPlayerIndex].getName() + " wins!");
                 System.exit(0);
             } 
-
-            String land = tower.check_tower(players[currentPlayerIndex].getPosition());
-            JOptionPane.showMessageDialog(null, land);
 
             // next player
             gameController.setcurrentPlayerIndex((currentPlayerIndex + 1)%players.length);

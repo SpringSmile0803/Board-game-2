@@ -5,7 +5,9 @@ public class Tower {
     
     // Enter position
     public String check_tower(int num) {
-        if ((num >= 5 && num <= 14)||(num >= 20 && num <= 23)||(num >= 25 && num <= 44)||(num >= 50 && num <= 53)||(num >= 55 && num <= 59)||(num >= 65 && num <= 74)||(num >= 80 && num <= 83)||(num >= 85 && num <= 89)||(num >= 95 && num <= 99)) {
+        if ((num >= 5 && num <= 14)||(num >= 20 && num <= 23)||(num >= 25 && num <= 44)||
+            (num >= 50 && num <= 53)||(num >= 55 && num <= 59)||(num >= 65 && num <= 74)||
+            (num >= 80 && num <= 83)||(num >= 85 && num <= 89)||(num >= 95 && num <= 99)) {
             return "Free tile";
         } else if(num == 25 || num == 55 || num == 85) {
             return "Pick the card";
@@ -59,6 +61,6 @@ public class Tower {
         TowerName.put(93, "D'Cosmos Residences");
         TowerName.put(94, "The Essence");
 
-        return TowerName.get(num);
+        return TowerName.get(num-1);
     }
 }
