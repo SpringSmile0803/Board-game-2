@@ -310,9 +310,13 @@ class RightItemPanel extends JPanel {
             JOptionPane.showMessageDialog(null, "Now is in " + players[currentPlayerIndex].getPosition());
 
             String landname = tower.check_tower(CurrenPosition);
+            String currentPlayer = players[currentPlayerIndex].getName();
             if (landname == "Free tile") {
-                ImageIcon landview = new ImageIcon(getClass().getResource("image/views/Free tile.gif"));
-                JOptionPane.showMessageDialog(null, "", players[currentPlayerIndex].getName() + " are landed in " + landname, JOptionPane.INFORMATION_MESSAGE, landview);
+                ImageIcon landview = new ImageIcon("image/views/car.gif");
+                JOptionPane.showMessageDialog(null, "", 
+                    currentPlayer + " are landed in " + landname, 
+                    JOptionPane.INFORMATION_MESSAGE, 
+                    landview);
             } else if (landname == "Pick a card") {
                 int cardnum = (int)(Math.random() * 10);
                 switch (cardnum) {
@@ -350,8 +354,15 @@ class RightItemPanel extends JPanel {
                         break;
                 }
             } else {
-                ImageIcon landview = new ImageIcon("image/views/" + landname+".jpg");
-                JOptionPane.showMessageDialog(null, "", players[currentPlayerIndex].getName() + " are landed in " + landname, JOptionPane.INFORMATION_MESSAGE, landview);
+                ImageIcon landview = new ImageIcon("image/views/" + landname + ".jpg");
+                int width = 450;
+                int height = 450;
+                Image scaledImage = landview.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+                ImageIcon scaledIcon = new ImageIcon(scaledImage);
+                JOptionPane.showMessageDialog(null, "", 
+                    currentPlayer + " are landed in " + landname, 
+                    JOptionPane.INFORMATION_MESSAGE, 
+                    scaledIcon);
             }
             
             // update score
