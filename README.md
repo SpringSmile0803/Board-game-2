@@ -8,5 +8,5 @@ Java Assignment2
 ||2.條件式還沒做完(Free tile的條件)
 ||3.圖片
 
-
+winner 要有圖片
 整合gameview到一個class
