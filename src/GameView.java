@@ -306,43 +306,46 @@ class RightItemPanel extends JPanel {
             int newrow = (CurrenPosition - 1) / 10;
             int newcol = (CurrenPosition - 1) % 10;
             tablePanel.updateCellColors(newrow, newcol, currentPlayerIndex, four_Color.getColor(currentPlayerIndex));
-
+            
             JOptionPane.showMessageDialog(null, "Now is in " + players[currentPlayerIndex].getPosition());
-
-            String landname = tower.check_tower(CurrenPosition);
+            
+            System.out.println(CurrenPosition);
+            String landname = tower.check_tower(CurrenPosition-1);
             String currentPlayer = players[currentPlayerIndex].getName();
+            System.out.println(landname);
             if (landname == "Free tile") {
                 ImageIcon landview = new ImageIcon("image/views/car.gif");
                 JOptionPane.showMessageDialog(null, "", 
                     currentPlayer + " are landed in " + landname, 
                     JOptionPane.INFORMATION_MESSAGE, 
                     landview);
-            } else if (landname == "Pick a card") {
+            } else if (landname == "Pick the card") {
+                JOptionPane.showMessageDialog(null, "Pick the card");
                 int cardnum = (int)(Math.random() * 10);
                 switch (cardnum) {
                     case 0:
-                        JOptionPane.showMessageDialog(null, "Sing your favorite song", "", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Sing your favorite song", "Your card is:", JOptionPane.INFORMATION_MESSAGE);
                         break;
                     case 1:
-                        JOptionPane.showMessageDialog(null, "Clap your hand three times, spin around twice and sit down.", "", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Clap your hand three times, spin around twice and sit down.", "Your card is:", JOptionPane.INFORMATION_MESSAGE);
                         break;
                     case 2:
-                        JOptionPane.showMessageDialog(null, "Do the Chicken Dance", "", JOptionPane.INFORMATION_MESSAGE);                
+                        JOptionPane.showMessageDialog(null, "Do the Chicken Dance", "Your card is:", JOptionPane.INFORMATION_MESSAGE);                
                         break;
                     case 3:
-                        JOptionPane.showMessageDialog(null, "Do the Floss Dance", "", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Do the Floss Dance", "Your card is:", JOptionPane.INFORMATION_MESSAGE);
                         break;
                     case 4:
-                        JOptionPane.showMessageDialog(null, "Walk like a robot", "", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Walk like a robot", "Your card is:", JOptionPane.INFORMATION_MESSAGE);
                         break;
                     case 5:
-                        JOptionPane.showMessageDialog(null, "Say the alphabet backwards", "", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Say the alphabet backwards", "Your card is:", JOptionPane.INFORMATION_MESSAGE);
                         break;
                     case 6:
-                        JOptionPane.showMessageDialog(null, "Name five state in the USA", "", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Name five state in the USA", "Your card is:", JOptionPane.INFORMATION_MESSAGE);
                         break;
                     case 7:
-                        JOptionPane.showMessageDialog(null, "Count to ten in a different language", "", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Count to ten in a different language", "Your card is:", JOptionPane.INFORMATION_MESSAGE);
                         break;
                     case 8:
                         JOptionPane.showMessageDialog(null, "Play air guitar", "", JOptionPane.INFORMATION_MESSAGE);

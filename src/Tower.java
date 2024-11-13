@@ -5,11 +5,11 @@ public class Tower {
     
     // Enter position
     public String check_tower(int num) {
-        if ((num >= 5 && num <= 14)||(num >= 20 && num <= 23)||(num >= 25 && num <= 44)||
-            (num >= 50 && num <= 53)||(num >= 55 && num <= 59)||(num >= 65 && num <= 74)||
-            (num >= 80 && num <= 83)||(num >= 85 && num <= 89)||(num >= 95 && num <= 99)) {
+        if ((num >= 5 && num <= 14)||(num >= 20 && num <= 23)||(num >= 25 && num <= 29)||
+            (num >= 35 && num <= 44)||(num >= 50 && num <= 53)||(num >= 55 && num <= 59)||
+            (num >= 65 && num <= 74)||(num >= 80 && num <= 83)||(num >= 85 && num <= 89)||(num >= 95 && num <= 99)) {
             return "Free tile";
-        } else if(num == 25 || num == 55 || num == 85) {
+        } else if(num == 24 || num == 54 || num == 84) {
             return "Pick the card";
         } else {
             return gettower(num);
@@ -25,11 +25,11 @@ public class Tower {
         TowerName.put(3, "Marc Service Residence");
         TowerName.put(4, "The Mews");
 
-        TowerName.put(20, "D'Ivo Residences");
-        TowerName.put(21, "Petalz Residences");
-        TowerName.put(22, "Southbank Residence");
-        TowerName.put(23, "The Address");
-        TowerName.put(24, "Waltz Residences");
+        TowerName.put(15, "D'Ivo Residences");
+        TowerName.put(16, "Petalz Residences");
+        TowerName.put(17, "Southbank Residence");
+        TowerName.put(18, "The Address");
+        TowerName.put(19, "Waltz Residences");
 
         TowerName.put(30, "TTDI Ascencia");
         TowerName.put(31, "Sri TTDI");
@@ -61,6 +61,6 @@ public class Tower {
         TowerName.put(93, "D'Cosmos Residences");
         TowerName.put(94, "The Essence");
 
-        return TowerName.get(num-1);
+        return TowerName.get(num);
     }
 }
